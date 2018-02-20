@@ -1,0 +1,10 @@
+# Create this file as: /etc/systemd/system/petclinic.service
+[Unit]
+Description=Spring PetClinic Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/java -jar /home/vagrant/spring-petclinic-2.0.0.jar
+
+[Install]
+WantedBy=multi-user.target
