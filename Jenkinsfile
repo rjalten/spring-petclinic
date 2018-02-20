@@ -21,4 +21,11 @@ node {
       junit '**/target/surefire-reports/TEST-*.xml'
       archive 'target/*.jar'
    }
+   stage('DeployToNode1') {
+      sshagent(['sshkey_node1']) {
+         sh 'scp -o StrictHostKeyChecking=no -l vagrant target/*.jar 192.168.100.11:'
+         sh 'ssh vagrant@192.168.100.11 sudo systemctl restart petclinic'
+      }
+   }
+
 }
