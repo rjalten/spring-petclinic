@@ -8,6 +8,7 @@ node {
       // **       in the global configuration.           
       //ook weg//mvnHome = tool 'M3'
    }
+   
    stage('Build') {
       // Run the maven build
       if (isUnix()) {
