@@ -31,7 +31,6 @@ node {
    stage('Smoketest Curl Node1:8080'){
       sh 'curl 192.168.100.11:8080 > /dev/null'
    }
-
    if (env.BRANCH_NAME == 'master'){
       stage('To Node2 if branche is Master'){
          sshagent(['sshkey_node2']) {
